@@ -1,6 +1,14 @@
 {
   "src": [
     "pages/Index",
-    "pages/subPages/PetAddPage"
+    "pages/subPages/PetAddPage",
+    "pages/subPages/RemindPage",
+    "pages/subPages/WeightChartPage",
+    "pages/subPages/AccountPage",
+    "pages/subPages/AlbumPage",
+    "pages/subPages/ShopPage",
+    "pages/subPages/NotePage",
+    "pages/subPages/CaseRecordPage",
+    "pages/subPages/CertPage"
   ]
 }

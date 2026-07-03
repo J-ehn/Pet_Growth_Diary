@@ -1,26 +1,58 @@
 import CloudDBService from "./CloudDBService";
+import { WeightRecord } from "../model/WeightRecord";
 
-// 显式声明图表数据接口
+export interface WeightSeriesItem {
+  name: string;
+  data: number[];
+}
+
 export interface WeightChartData {
   xAxis: string[];
-  weightList: number[];
+  series: WeightSeriesItem[];
 }
 
 export default class ChartService {
-  // 函数返回值指定接口类型 WeightChartData
   static async getPetWeightChartData(petId: string): Promise<WeightChartData> {
-    const rawRecords = await CloudDBService.getPetWeightList(petId);
+    // 原始数据 WeightRecord[]
+    const rawRecords: WeightRecord[] = await CloudDBService.getPetWeightList(petId);
+
     const xAxis: string[] = [];
-    const weightList: number[] = [];
+    const weightData: number[] = [];
+
+    // 数据库查询已按recordDate升序，无需再次sort
     rawRecords.forEach(item => {
       xAxis.push(item.recordDate);
-      weightList.push(item.weight);
-    })
-    // 字面量赋值给显式接口类型，消除校验报错
+      weightData.push(item.weight);
+    });
+
+    const singleSeries: WeightSeriesItem = {
+      name: "体重(kg)",
+      data: weightData
+    };
+
     const result: WeightChartData = {
       xAxis,
-      weightList
+      series: [singleSeries]
     };
     return result;
+  }
+
+  static formatWeightChartData(list: Array<WeightRecord>): WeightChartData {
+    const xAxis: string[] = [];
+    const weightData: number[] = [];
+    list.forEach(item => {
+      xAxis.push(item.recordDate);
+      weightData.push(item.weight);
+    });
+
+    const singleSeries: WeightSeriesItem = {
+      name: "体重(kg)",
+      data: weightData
+    };
+
+    return {
+      xAxis,
+      series: [singleSeries]
+    };
   }
 }

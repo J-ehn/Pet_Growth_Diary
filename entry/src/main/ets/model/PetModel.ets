@@ -68,14 +68,13 @@ export interface FuncIconItem {
   color: ResourceColor;
 }
 
-// 全局原始数组：只写字符串，无$r，无编译报错
 export const FuncIconRawList: FuncIconRawItem[] = [
-  { type: FuncType.REMIND, iconRes: "sys.media.ohos_ic_public_clock", color: "#FF7D00" },
-  { type: FuncType.ACCOUNT, iconRes: "sys.media.ohos_ic_public_clock", color: "#00B42A" },
-  { type: FuncType.ALBUM, iconRes: "sys.media.ohos_ic_public_clock", color: "#1677FF" },
-  { type: FuncType.SHOP, iconRes: "sys.media.ohos_ic_public_clock", color: "#F53F3F" },
-  { type: FuncType.NOTE, iconRes: "sys.media.ohos_ic_public_clock", color: "#722ED1" },
-  { type: FuncType.WEIGHT, iconRes: "sys.media.ohos_ic_public_clock", color: "#FF9500" },
-  { type: FuncType.CASE, iconRes: "sys.media.ohos_ic_public_clock", color: "#0FC6C2" },
-  { type: FuncType.CERT, iconRes: "sys.media.ohos_ic_public_clock", color: "#86909C" },
+  { type: FuncType.REMIND, iconRes: "sys.media.icon_remind", color: "#FF7D00" },
+  { type: FuncType.ACCOUNT, iconRes: "sys.media.icon_account", color: "#00B42A" },
+  { type: FuncType.ALBUM, iconRes: "sys.media.icon_album", color: "#1677FF" },
+  { type: FuncType.SHOP, iconRes: "sys.media.icon_shop", color: "#F53F3F" },
+  { type: FuncType.NOTE, iconRes: "sys.media.icon_note", color: "#722ED1" },
+  { type: FuncType.WEIGHT, iconRes: "sys.media.icon_weight", color: "#FF9500" },
+  { type: FuncType.CASE, iconRes: "sys.media.icon_case", color: "#0FC6C2" },
+  { type: FuncType.CERT, iconRes: "sys.media.icon_cert", color: "#86909C" },
 ];

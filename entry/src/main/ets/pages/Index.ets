@@ -82,6 +82,8 @@ struct PetIndexPage {
     })
   }
 
+
+
   // // 删除宠物档案
   // async deletePet() {
   //   if(!this.currentPet) return;
@@ -102,6 +104,9 @@ struct PetIndexPage {
   //     promptAction.showToast({ message: "删除失败" });
   //   }
   // }
+
+
+
 
   // 操作弹窗Builder
   @Builder
@@ -208,6 +213,8 @@ struct PetIndexPage {
           if (idx < this.petList.length) {
             this.currentPet = this.petList[idx];
             this.swiperIndex = idx;
+            // 切换宠物时打印ID，验证参数是否正常
+            console.info("切换宠物，当前petId：", this.currentPet.petId);
           }
         })
         .margin({ bottom: 16 })
@@ -223,7 +230,11 @@ struct PetIndexPage {
 
           // 上层八宫格：靠顶部，占上半部分
           Column() {
-            FuncGrid()
+            // 修改为传递体重按钮点击回调
+            FuncGrid({
+              currentPetId: this.currentPet?.petId ?? null
+            })
+
           }
           .width("95%")
           .height("45%")

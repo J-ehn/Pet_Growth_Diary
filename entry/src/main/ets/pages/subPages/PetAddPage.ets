@@ -4,6 +4,7 @@ import { PetModel } from "../../model/PetModel";
 import promptAction from "@ohos.promptAction";
 import util from "@ohos.util";
 
+
 // 先定义参数类型接口（ArkTS允许）
 interface RouteParams {
   petId?: string;

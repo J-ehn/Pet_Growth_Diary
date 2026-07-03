@@ -1,14 +1,8 @@
 import relationalStore from "@ohos.data.relationalStore";
 import { PetModel } from "../model/PetModel";
+import { WeightRecord } from "../model/WeightRecord";
+import { WeightModel} from "../model/WeightModel";
 
-
-// 体重记录实体类型
-export interface WeightRecord {
-  id: number;
-  petId: string;
-  weight: number;
-  recordDate: string;
-}
 
 export interface WeightRecordAddParam {
   petId: string;
@@ -142,7 +136,7 @@ export default class CloudDBService {
   }
 
   // ========== 根据petId查询体重记录 ==========
-  static async getPetWeightList(petId: string): Promise<WeightRecord[]> {
+   static async getPetWeightList(petId: string): Promise<WeightRecord[]> {
     if (!CloudDBService.store) return [];
     const predicates = new relationalStore.RdbPredicates("WeightRecord");
     predicates.equalTo("petId", petId);
@@ -215,4 +209,7 @@ export default class CloudDBService {
   //   const db = await this.getDB();
   //   await db.delete("PetTable", petId);
   // }
+
+
+
 }
